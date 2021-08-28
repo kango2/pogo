@@ -1,4 +1,4 @@
-# Running transcriptome assembly
+# Transcriptome assembly
 
 Trinity assembly for multiple samples can be run as follows. `trinity.filelist` is a four column tab separated file containing
 1. Unique name of the assembly output (sample identifier)
