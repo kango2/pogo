@@ -13,4 +13,5 @@ cat trinity.filelist | xargs -l bash -c 'command qsub -j oe -o /PBS/outputdir/$0
 NOTES:
 1. Doesn't include ways to handle single end sequencing.
 2. Trinity run time parameters can be modified in `runtrinity.sh` script. Currently, it is set to `--full_cleanup` mode and the `--min_kmer_cov 3` allows for removing noisy k-mers and improves run-time efficiency.
+3. Each transcriptome assembly takes up ~700 service units (SU) with a range between 180 and 1400 SUs. 
  
