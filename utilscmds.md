@@ -3,3 +3,10 @@ Following will identify nodes with maximum connections in assemnbly graph genera
 ```
 grep ^L assembly_graph.gfa | cut -f2 | sort | uniq -c | sort -k1,1n | tail -n200
 ```
+
+Command to generate fasta library for repeats from the Dfam.h5
+
+```
+module load RepeatMasker
+famdb.py -i /g/data/if89/datalib/Dfam_3.4/Dfam.h5 families -d -f fasta_acc Sauropsida >/g/data/if89/datalib/Dfam_3.4/Sauropsida.fasta
+```
