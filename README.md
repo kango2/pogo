@@ -16,7 +16,8 @@ NOTES:
    *  `--full_cleanup` mode to remove extra millions of files created during the run.
    *  `--min_kmer_cov 3` to remove noisy k-mers and improving run-time efficiency.
    *  Other Trinity parameters can be modified in [`runtrinity.sh`](https://github.com/kango2/pogo/blob/main/cmdscripts/runtrinity.sh) script.
-3. **Todo:** 
+3. **Output files:** `outputdir.Trinity.fasta` and `outputdir.Trinity.fasta.gene_trans_map`
+4. **Todo:** 
   * If a library from one sample is sequenced across multiple lanes, then one would have to merge data from those lanes.
   * Doesn't include ways to handle single end sequencing as yet.
  
@@ -35,5 +36,6 @@ NOTES:
   * Use PBS_NCPUS as the number of parallel processes to retain 95% plus efficiency. RepeatMasker recommends PBS_NCPUS/4 parallel processes for rmblastn but it was not running efficiently.
   * Tried with HMM search engine but it does not work. HMM requires curated libraries.
 3. **Resource dependency:** Dfam library is located at `/g/data/if89/datalib/Dfam_3.4/`. Species, lineage specific libraries can be constructed for use from this file ([command](https://github.com/kango2/pogo/blob/main/utilscmds.md#generate-fasta-library-for-repeats-from-the-dfamh5)).
-4. **Todo:** 
+4. **Output files:** `genome.fasta.[tbl|out.gff|out|ori.out|masked|cat.gz`
+5. **Todo:** 
   * Genome can be split into chromosomes to reduce runtime. Merging of results need to be figured out.
