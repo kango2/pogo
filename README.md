@@ -12,7 +12,7 @@ cat trinity.filelist | xargs -l bash -c 'command qsub -j oe -o /PBS/outputdir/$0
 
 NOTES:
 1. Doesn't include ways to handle single end sequencing.
-2. Trinity run time parameters can be modified in `runtrinity.sh` script. Currently, it is set to `--full_cleanup` mode and the `--min_kmer_cov 3` allows for removing noisy k-mers and improves run-time efficiency.
+2. Trinity run time parameters can be modified in `runtrinity.sh` script. Currently, it is set to `--full_cleanup` mode and the `--min_kmer_cov 3` to remove noisy k-mers and improving run-time efficiency.
 3. Each transcriptome assembly takes up ~700 service units (SU) with a range between 180 and 1400 SUs. 
 4. If a library from one sample is sequenced across multiple lanes, then one would have to merge data from those lanes. (ToDo)
  
@@ -25,7 +25,7 @@ qsub -P ${PROJECT} -o /PBS/outputdir/ -v inputgenome=/path/to/genome/pogona_ont_
 ```
 
 NOTES:
-1. Took about 15 hours to mask Pogona genome. Genome can be split into chromosomes to reduce runtime. Merging of results need to be figured out.
+1. Took about 15 hours (1500 Service Units) to mask Pogona genome. Genome can be split into chromosomes to reduce runtime. Merging of results need to be figured out.
 2. Fragment size used was 1Mb with memory use of 79Gb. Perhaps this can be increased 2Mb. Tests with 5, 10 and 20Mb failed with memory issue.
 3. Use PBS_NCPUS as the number of parallel processes to retain 95% plus efficiency. RepeatMasker recommends PBS_NCPUS/4 parallel processes for rmblastn but it was not running efficiently.
 4. Tried with HMM search engine but it works only for curated libraries.
