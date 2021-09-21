@@ -1,4 +1,4 @@
-# Transcriptome assembly
+# Transcriptome assembly using Trinity
 
 Trinity assembly for multiple samples can be run as follows. `trinity.filelist` is a four column tab separated file containing
 1. Unique name of the assembly output (sample identifier)
@@ -20,7 +20,7 @@ NOTES:
   * If a library from one sample is sequenced across multiple lanes, then one would have to merge data from those lanes.
   * Doesn't include ways to handle single end sequencing as yet.
  
-# Repeat masking
+# Repeat masking using RepeatMasker
 
 Assemblies need to be for masked for repeats before they can be used for annotations and other downstream usecases. 
 
