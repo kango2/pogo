@@ -16,3 +16,6 @@ NOTES:
 3. Each transcriptome assembly takes up ~700 service units (SU) with a range between 180 and 1400 SUs. 
 4. If a library from one sample is sequenced across multiple lanes, then one would have to merge data from those lanes. (ToDo)
  
+# Assembly repeat masking
+
+Assemblies need to be for masked for repeats before they can be used for annotations and other downstream usecases. 
