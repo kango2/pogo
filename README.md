@@ -35,4 +35,5 @@ NOTES:
   * Use PBS_NCPUS as the number of parallel processes to retain 95% plus efficiency. RepeatMasker recommends PBS_NCPUS/4 parallel processes for rmblastn but it was not running efficiently.
   * Tried with HMM search engine but it does not work. HMM requires curated libraries.
 3. **Resource dependency:** Dfam library is located at `/g/data/if89/datalib/Dfam_3.4/`. Species, lineage specific libraries can be constructed for use from this file ([command](https://github.com/kango2/pogo/blob/main/utilscmds.md#generate-fasta-library-for-repeats-from-the-dfamh5)).
-4. **Todo:** Genome can be split into chromosomes to reduce runtime. Merging of results need to be figured out).
+4. **Todo:** 
+  * Genome can be split into chromosomes to reduce runtime. Merging of results need to be figured out.
