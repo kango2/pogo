@@ -19,3 +19,14 @@ NOTES:
 # Assembly repeat masking
 
 Assemblies need to be for masked for repeats before they can be used for annotations and other downstream usecases. 
+
+```
+qsub -P ${PROJECT} -o /PBS/outputdir/ -v inputgenome=/path/to/genome/pogona_ont_purged_primary_assembly.fa,rmlib=/g/data/if89/datalib/Dfam_3.4/Sauropsida.fasta,outputdir=/path/to/outputdir/forrepeatmasker runrepeatmasker.sh
+```
+
+NOTES:
+1. Took about 15 hours to mask Pogona genome. Genome can be split into chromosomes to reduce runtime. Merging of results need to be figured out.
+2. Fragment size used was 1Mb with memory use of 79Gb. Perhaps this can be increased 2Mb. Tests with 5, 10 and 20Mb failed with memory issue.
+3. Use PBS_NCPUS as the number of parallel processes to retain 95% plus efficiency. RepeatMasker recommends PBS_NCPUS/4 parallel processes for rmblastn but it was not running efficiently.
+4. Tried with HMM search engine but it works only for curated libraries.
+5. Dfam library is located at `/g/data/if89/datalib/Dfam_3.4/`. Species, lineage specific libraries can be constructed for use from this file ([command](https://github.com/kango2/pogo/blob/main/utilscmds.md#generate-fasta-library-for-repeats-from-the-dfamh5)).
