@@ -23,7 +23,7 @@ NOTES:
  
 # Repeat masking using RepeatMasker
 
-Assemblies need to be for masked for repeats before they can be used for annotations and other downstream usecases. 
+Assemblies need to be for masked for repeats before they can be used for annotations and other downstream usecases. [runrepeatmasker.sh](https://github.com/kango2/pogo/blob/main/cmdscripts/runrepeatmakser.sh) can be launched as follows for repeat annotations using RepeatMakser.
 
 ```
 qsub -P ${PROJECT} -o /PBS/outputdir/ -v inputgenome=/path/to/genome/pogona_ont_purged_primary_assembly.fa,rmlib=/g/data/if89/datalib/Dfam_3.4/Sauropsida.fasta,outputdir=/path/to/outputdir/forrepeatmasker runrepeatmasker.sh
