@@ -48,3 +48,5 @@ for i in ../bpadata/Bassiana_duperreyi/projects/Trinity/*/*.Trinity.fasta; do in
 
 Service units range for 780 chunks for a transcriptome: 88 to
 Memory = 36GB
+
+Better to request 3 hours only. If some commands havent finished, then they can be individually run with limited resource request.
