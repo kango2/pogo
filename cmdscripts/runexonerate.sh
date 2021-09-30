@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N exonerate
-#PBS -l ncpus=48,walltime=24:00:00,storage=gdata/if89+gdata/xl04,mem=190GB,jobfs=400GB
+#PBS -l ncpus=48,walltime=03:00:00,storage=gdata/if89+gdata/xl04,mem=190GB,jobfs=400GB
 #PBS -j oe
 module use /g/data/if89/apps/modulefiles
 module load exonerate/2.2.0 parallel
