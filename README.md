@@ -39,3 +39,9 @@ NOTES:
 4. **Output files:** `genome.fasta.[tbl|out.gff|out|ori.out|masked|cat.gz]`
 5. **Todo:** 
   * Genome can be split into chromosomes to reduce runtime. Merging of results need to be figured out.
+
+# Exonerate for aligning *de novo* transcript contigs to repeat masked genome
+
+```
+for i in ../bpadata/Bassiana_duperreyi/projects/Trinity/*/*.Trinity.fasta; do inputfasta=$(realpath $i); for c in 1 241 481; do qsub -P xl04 -o /g/data/xl04/hrp561/ -v querychunktotal=720,querychunkstart=$c,querychunkend=$((c+239)),outputdir=/g/data/xl04/bpadata/Bassiana_duperreyi/projects/exonerate,inputfasta=${inputfasta},targetgenome=/g/data/xl04/hrp561/bassiana_ont_gap_filled_assembly.RM.fasta /g/data/xl04/hrp561/runexonerate.sh; done; done
+```
