@@ -48,5 +48,7 @@ for i in ../bpadata/Bassiana_duperreyi/projects/Trinity/*/*.Trinity.fasta; do in
 
 Service units range for 780 chunks for a transcriptome: 88 to
 Memory = 36GB
-
-Better to request 3 hours only. If some commands havent finished, then they can be individually run with limited resource request.
+Walltime = Most chunks completed in ~1:30. There was one chunk that used 10 hours. Better to relaunch with 
+48 CPUs
+Better to request 3 hours only. If some commands havent finished, then they can be individually run with limited resource request to handle failed commands.
+deleting stdout of jobs because the output of exonerate goes to STDOUT and other files too. Duplicated writing. Stems from parallel, as it may be using tee for std out.
