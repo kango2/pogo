@@ -7,7 +7,10 @@ Trinity assembly for multiple samples can be run as follows. `trinity.filelist` 
 4. One of `RF/FR/US` denoting strandedness of the RNAseq data for that sample. `FR` is where `R1` reads are in sense orientation to the RNA and `R2` reads are antisense. `RF` is the opposite where `R1` is antisense and `R2` is sense relative to the RNA. `US` represents unstranded library.
 
 ```
-cat trinity.filelist | xargs -l bash -c 'command qsub -j oe -o /PBS/outputdir/$0.OU -v outputdir=/path/2/save/assemblies/Trinity,fileid=$0,leftfq=$1,rightfq=$2,sstype=$3 runtrinity.sh'
+cat trinity.filelist | \
+xargs -l bash -c 'command qsub -j oe -o /PBS/outputdir/$0.OU \
+-v outputdir=/path/2/save/assemblies/Trinity,fileid=$0,leftfq=$1,rightfq=$2,sstype=$3 \
+runtrinity.sh'
 ```
 
 NOTES:
