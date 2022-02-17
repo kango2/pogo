@@ -46,9 +46,6 @@ NOTES:
 for i in ../bpadata/Bassiana_duperreyi/projects/Trinity/*/*.Trinity.fasta; do inputfasta=$(realpath $i); for c in 1 241 481; do qsub -P xl04 -o /g/data/xl04/hrp561/ -v querychunktotal=720,querychunkstart=$c,querychunkend=$((c+239)),outputdir=/g/data/xl04/bpadata/Bassiana_duperreyi/projects/exonerate,inputfasta=${inputfasta},targetgenome=/g/data/xl04/hrp561/bassiana_ont_gap_filled_assembly.RM.fasta /g/data/xl04/hrp561/runexonerate.sh; done; done
 ```
 
-Service units range for 780 chunks for a transcriptome: 88 to
-Memory = 36GB
-Walltime = Most chunks completed in ~1:30. There was one chunk that used 10 hours. Better to relaunch with 
-48 CPUs
-Better to request 3 hours only. If some commands havent finished, then they can be individually run with limited resource request to handle failed commands.
-deleting stdout of jobs because the output of exonerate goes to STDOUT and other files too. Duplicated writing. Stems from parallel, as it may be using tee for std out.
+NOTES:
+1. **Resource usage:** 1 hour 30 minutes (request 3 hours), 88 service units (SU) per chunk, 36GB RAM, 48 ncpus for a transcriptome
+2. 
