@@ -13,9 +13,11 @@
 
 ```
 module load hifiasm
-qsub -q hugemem -V -j oe -N hifiasm -o /path/to/logs/ -l ncpus=48,mem=1470GB,walltime=48:00:00,storage=gdata/yourProject+gdata/if89 --\
+qsub -q hugemem -V -j oe -N hifiasm -o /path/to/logs/ \
+-l ncpus=48,mem=1470GB,walltime=48:00:00,storage=gdata/yourProject+gdata/if89 --\
 hifiasm -o /path/to/output/directory/assembly_basename -t 48 input1.fq.gz input2.fq.gz [....]
 ```
-    - Get error corrected reads for other applications
-    - Compress and create tar archive of output text files.
-4. Convert `.gfa` to `.fasta` files.
+
+4. Get error corrected reads for other applications
+5. Compress and create tar archive of output text files. 
+6. Convert `.gfa` to `.fasta` files.
