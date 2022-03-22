@@ -1,4 +1,4 @@
-## Steps
+# PacBio HiFi Assembly
 
 1. Archive data
     - check md5sums on transfer
