@@ -11,4 +11,5 @@
     - All steps can be done by using [pacbiobam2fastx.sh](https://github.com/kango2/pogo/blob/main/hifiasm/pacbiobam2fastx.sh) script (except archiving).
 3. Run [hifiasm](https://github.com/chhylp123/hifiasm) assembly
     - Get error corrected reads for other applications
+    - Compress and create tar archive of output text files.
 4. Convert `.gfa` to `.fasta` files.
