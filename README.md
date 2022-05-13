@@ -46,7 +46,7 @@ NOTES:
 # Exonerate for aligning *de novo* transcript contigs to repeat masked genome
 
 ```
-for i in ../bpadata/Bassiana_duperreyi/projects/Trinity/*/*.Trinity.fasta; do inputfasta=$(realpath $i); for c in 1 241 481; do qsub -P xl04 -o /g/data/xl04/hrp561/ -v querychunktotal=720,querychunkstart=$c,querychunkend=$((c+239)),outputdir=/g/data/xl04/bpadata/Bassiana_duperreyi/projects/exonerate,inputfasta=${inputfasta},targetgenome=/g/data/xl04/hrp561/bassiana_ont_gap_filled_assembly.RM.fasta /g/data/xl04/hrp561/runexonerate.sh; done; done
+for i in ../bpadata/Bassiana_duperreyi/projects/Trinity/*/*.Trinity.fasta; do inputfasta=$(realpath $i); for c in 1 241 481; do qsub -P xl04 -o /path/to/exonerate/logs -v querychunktotal=720,querychunkstart=$c,querychunkend=$((c+239)),outputdir=/path/to/exonerate/output,inputfasta=${inputfasta},targetgenome=/path/to/genome.fasta runexonerate.sh; done; done
 ```
 
 NOTES:
