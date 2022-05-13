@@ -10,3 +10,11 @@ grep ^L assembly_graph.gfa | cut -f2 | sort | uniq -c | sort -k1,1n | tail -n200
 module load RepeatMasker
 famdb.py -i /g/data/if89/datalib/Dfam_3.4/Dfam.h5 families -d -f fasta_acc Sauropsida >/g/data/if89/datalib/Dfam_3.4/Sauropsida.fasta
 ```
+
+## Generate summary stats for Fasta file
+
+```
+cat input.fasta | perl -lne 'if($_=~/>/){push(@l,length($s));$s="";}else{$s.=$_;$total+=length($_);$gc+=$_=~tr/[GC]//;$ncount+=$_=~tr/N//;}END{push(@l,length($s));shift@l;@l=sort{$b<=>$a}@l;$n9p=0;$n5p=0;foreach(@l){$n+=$_;if($n>=$total*0.5 && $n5p==0){$n5p=$_}elsif($n>=$total*0.9 && $n9p==0){$n9p=$_}}; print "$total,".scalar(@l).",".(sprintf "%.02f", (($gc*100)/$total)).",$ncount,".(sprintf "%.02f", $total/scalar(@l)).",".($l[int(scalar(@l)/2)]).",$l[0],$l[$#l],$n5p,$n9p"}')
+
+```
+
