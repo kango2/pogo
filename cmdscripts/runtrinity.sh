@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -lncpus=48,mem=190GB,walltime=48:00:00,storage=gdata/xl04+gdata/te53,jobfs=400GB
+#PBS -lncpus=48,mem=190GB,walltime=48:00:00,storage=gdata/xl04,jobfs=400GB
 #PBS -N trinity
 #PBS -P xl04
 
