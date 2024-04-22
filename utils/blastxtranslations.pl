@@ -76,9 +76,9 @@ while (<F>){
   next if (exists $translationseen{$a[0]});
   my ($cds, $translation, $cds_start, $cds_end, $cdna, $strand, $startcodon, $stopcodon, $rellen) = get_translation(@a);
   next if (length($translation) < 50);
-  print CDS   ">$a[0] $cdnaseq{$a[0]}{'description'} $cds_start:$cds_end:$strand:$startcodon:$stopcodon:$rellen:". (length($cdna) - length($cds) - $cds_start) ."\n$cds\n";
-  print CDNA  ">$a[0] $cdnaseq{$a[0]}{'description'} $cds_start:$cds_end:$strand:$startcodon:$stopcodon:$rellen:". (length($cdna) - length($cds) - $cds_start) ."\n$cdna\n";
-  print AASEQ ">$a[0] $cdnaseq{$a[0]}{'description'} $cds_start:$cds_end:$strand:$startcodon:$stopcodon:$rellen:". (length($cdna) - length($cds) - $cds_start) ."\n$translation\n";
+  print CDS   ">$a[0] $cdnaseq{$a[0]}{'description'} $cds_start:$cds_end:$strand:$startcodon:$stopcodon:$rellen:". (length($cdna) - $cds_end) ."\n$cds\n";
+  print CDNA  ">$a[0] $cdnaseq{$a[0]}{'description'} $cds_start:$cds_end:$strand:$startcodon:$stopcodon:$rellen:". (length($cdna) - $cds_end) ."\n$cdna\n";
+  print AASEQ ">$a[0] $cdnaseq{$a[0]}{'description'} $cds_start:$cds_end:$strand:$startcodon:$stopcodon:$rellen:". (length($cdna) - $cds_end) ."\n$translation\n";
   $translationseen{$a[0]}="";
 }
 close F;
@@ -87,9 +87,9 @@ foreach my $seq (keys %cdnaseq){
   unless (exists $translationseen{$seq}){
     my ($cds, $translation, $cds_start, $cds_end, $cdna, $strand, $startcodon, $stopcodon, $rellen) = longestORF($cdnaseq{$seq}{'seq'});
     if (length($translation) >= 50){
-      print CDS   ">$seq $cdnaseq{$seq}{'description'} $cds_start:$cds_end:$strand:$startcodon:$stopcodon:$rellen:". (length($cdna) - length($cds) - $cds_start) ."\n$cds\n";
-      print CDNA  ">$seq $cdnaseq{$seq}{'description'} $cds_start:$cds_end:$strand:$startcodon:$stopcodon:$rellen:". (length($cdna) - length($cds) - $cds_start) ."\n$cdna\n";
-      print AASEQ ">$seq $cdnaseq{$seq}{'description'} $cds_start:$cds_end:$strand:$startcodon:$stopcodon:$rellen:". (length($cdna) - length($cds) - $cds_start) ."\n$translation\n";
+      print CDS   ">$seq $cdnaseq{$seq}{'description'} $cds_start:$cds_end:$strand:$startcodon:$stopcodon:$rellen:". (length($cdna) - $cds_end) ."\n$cds\n";
+      print CDNA  ">$seq $cdnaseq{$seq}{'description'} $cds_start:$cds_end:$strand:$startcodon:$stopcodon:$rellen:". (length($cdna) - $cds_end) ."\n$cdna\n";
+      print AASEQ ">$seq $cdnaseq{$seq}{'description'} $cds_start:$cds_end:$strand:$startcodon:$stopcodon:$rellen:". (length($cdna) - $cds_end) ."\n$translation\n";
     }
     else{
       print CDNA ">$seq $cdnaseq{$seq}{'description'}\n$cdnaseq{$seq}{'seq'}\n";
