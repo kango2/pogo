@@ -33,6 +33,7 @@ NOTES:
 3. **Output files:** `outputdir.Trinity.fasta` and `outputdir.Trinity.fasta.gene_trans_map`
 4. **Todo:** 
   * Incorporate the rename fasta header script into runtrinity.sh  
+  
 The trinity assemblies have default fasta header with prefix `TRINITY_`, the below `for` loop command using seqkit changes the prefix to your sample identifier (extracted from output file name)
 ```
 module load seqkit/2.5.1
