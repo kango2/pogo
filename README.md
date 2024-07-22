@@ -3,7 +3,7 @@
 Trinity assembly for multiple samples can be run as follows. `trinity.filelist` is a five column tab separated file containing:
 1. Unique name of the assembly output (sample identifier)
 2. Sequencing type (SE or PE)
-3. Strandedness of RNAseq (for PE, RF|RF|US, for SE, R|F|US)
+3. Strandedness of RNAseq (for PE, RF|FR|US, for SE, R|F|US)
 4. Full path to the left (R1) fastq file, comma separated if there are multiple files/lanes  
 5. Full path to the right (R2) fastq file, comma separated if there are multiple files/lanes  
 
