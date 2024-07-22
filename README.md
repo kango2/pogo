@@ -11,10 +11,10 @@ For single end samples (SE) only 4 columns without any trailing whitespace chara
 For column 3, specify One of `RF/FR/US` denoting strandedness of the paired end RNAseq data for that sample. `FR` is where `R1` reads are in sense orientation to the RNA and `R2` reads are antisense. `RF` is the opposite where `R1` is antisense and `R2` is sense relative to the RNA. `US` represents unstranded library. Similarly `F` `R` and `US` for single end data.  
 Example of `trinity.filelist` below:
 ```
-PEsample1_1lane	PE	RF	/path/to/sample1_R1.fq.gz	/path/to/sample1_R2.fq.gz
-PEsample2_2lanes	PE	RF	/path/to/sample2_R1_L001.fq.gz,/path/to/sample2_R1_L002.fq.gz	/path/to/sample2_R2_L001.fq.gz,/path/to/sample2_R2_L002.fq.gz
-SEsample3_1lane	SE	R	/path/to/sample3_R1.fq.gz
-SEsample4_2lanes	SE	US	/path/to/sample4_R1_L001.fq.gz,/path/to/sample4_R1_L002.fq.gz
+PEsample1_SingleLane	PE	RF	/path/to/sample1_R1.fq.gz	/path/to/sample1_R2.fq.gz
+PEsample2_MultiLane	PE	RF	/path/to/sample2_R1_L001.fq.gz,/path/to/sample2_R1_L002.fq.gz	/path/to/sample2_R2_L001.fq.gz,/path/to/sample2_R2_L002.fq.gz
+SEsample3_SingleLane	SE	R	/path/to/sample3_R1.fq.gz
+SEsample4_MultiLane	SE	US	/path/to/sample4_R1_L001.fq.gz,/path/to/sample4_R1_L002.fq.gz
 ```
 Command to submit trinity jobs:
 ```
