@@ -1,11 +1,12 @@
 # Transcriptome assembly using Trinity
 
-Trinity assembly for multiple samples can be run as follows. `trinity.filelist` is a four column tab separated file containing
+Trinity assembly for multiple samples can be run as follows. `trinity.filelist` is a five column tab separated file containing:
 1. Unique name of the assembly output (sample identifier)
 2. Sequencing type (SE or PE)
 3. Strandedness of RNAseq (for PE, RF|RF|US, for SE, R|F|US)
-4. Full path to the left (R1) fastq file, comma separated if there are multiple files/lanes
-5. Full path to the right (R2) fastq file, comma separated if there are multiple files/lanes
+4. Full path to the left (R1) fastq file, comma separated if there are multiple files/lanes  
+5. Full path to the right (R2) fastq file, comma separated if there are multiple files/lanes  
+
 For single end samples (SE) only 4 columns without any trailing whitespace characters are required.  
 For column 3, specify One of `RF/FR/US` denoting strandedness of the paired end RNAseq data for that sample. `FR` is where `R1` reads are in sense orientation to the RNA and `R2` reads are antisense. `RF` is the opposite where `R1` is antisense and `R2` is sense relative to the RNA. `US` represents unstranded library. Similarly `F` `R` and `US` for single end data.  
 Example of `trinity.filelist` below:
@@ -31,7 +32,7 @@ NOTES:
    *  Other Trinity parameters can be modified in [`runtrinity.sh`](https://github.com/kango2/pogo/blob/main/cmdscripts/runtrinity.sh) script.
 3. **Output files:** `outputdir.Trinity.fasta` and `outputdir.Trinity.fasta.gene_trans_map`
 4. **Todo:** 
-  * Incorporate the rename fasta header script into runtrinity.sh
+  * Incorporate the rename fasta header script into runtrinity.sh  
 The trinity assemblies have default fasta header with prefix `TRINITY_`, the below `for` loop command using seqkit changes the prefix to your sample identifier (extracted from output file name)
 ```
 module load seqkit/2.5.1
@@ -44,7 +45,7 @@ done
 
 When soft masking your genome, using a taxon repeats library (eg. from Dfam) will often result in low masking percentage because the library lack the species-specific repeats for your particular species. The presence of unmasked repeats in your genome, especially in high density will impede downstream annotation. Therefore, it is crucial to generate a species-specific repeat library in such cases.
 
-Script to generate custom species-specific repeats library can be found here [run_repeatmodeler.sh](https://github.com/kango2/pogo/blob/main/cmdscripts/runrepeatmodeler.sh). It can be launched as follows.
+Script to generate custom species-specific repeats library can be found here [run_repeatmodeler.sh](https://github.com/kango2/pogo/blob/main/cmdscripts/run_repeatmodeler.sh). It can be launched as follows.
 ```
 export workingdir="/path/to/working_directory"
 export inputgenome="/path/to/genome.fa"
