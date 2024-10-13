@@ -31,17 +31,7 @@ NOTES:
    *  `--min_kmer_cov 3` to remove noisy k-mers and improving run-time efficiency.
    *  Other Trinity parameters can be modified in [`runtrinity.sh`](https://github.com/kango2/pogo/blob/main/cmdscripts/runtrinity.sh) script.
 3. **Output files:** `outputdir.Trinity.fasta` and `outputdir.Trinity.fasta.gene_trans_map`
-4. **Todo:** 
-  * Incorporate the rename fasta header script into runtrinity.sh  
-  
-The trinity assemblies have default fasta header with prefix `TRINITY_`, the below `for` loop command using seqkit changes the prefix to your sample identifier (extracted from output file name)
-```
-module load seqkit/2.5.1
-for i in $(ls /path/to/trinity/assemblies/*.trinity.Trinity.fasta); do
-    export base=$(basename ${i} .trinity.Trinity.fasta)
-    cat ${i} | seqkit replace -p ^TRINITY_ -r ${base}_ > /path/to/trinity/assemblies/${base}_renamed.fasta
-done
-```
+ 
 # Generate TE library using RepeatModeler
 
 When soft masking your genome, using a taxon repeats library (eg. from Dfam) will often result in low masking percentage because the library lack the species-specific repeats for your particular species. The presence of unmasked repeats in your genome, especially in high density will impede downstream annotation. Therefore, it is crucial to generate a species-specific repeat library in such cases.

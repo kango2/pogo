@@ -5,8 +5,8 @@
 
 set -e
 module use /g/data/if89/apps/modulefiles
-module unload samtools jellyfish bowtie2 salmon python3/3.9.2 trinity/2.12.0
-module load samtools jellyfish bowtie2 salmon python3/3.9.2 trinity/2.12.0
+module unload samtools jellyfish bowtie2 salmon python3/3.9.2 trinity/2.12.0 seqkit/2.5.1
+module load samtools jellyfish bowtie2 salmon python3/3.9.2 trinity/2.12.0 seqkit/2.5.1
 
 if [[ -e ${outputdir}/${fileid}.trinity.done || -e ${outputdir}/${fileid}.trinity.running ]]
 then
@@ -55,8 +55,8 @@ else
         exit 1
     fi
     endtime=`date`
-	rsync -a $PBS_JOBFS/${fileid}.trinity.Trinity.fasta ${outputdir}/
-	rsync -a $PBS_JOBFS/${fileid}.trinity.Trinity.fasta.gene_trans_map ${outputdir}/
+	cat $PBS_JOBFS/${fileid}.trinity.Trinity.fasta | seqkit replace -p ^TRINITY_ -r ${fileid}_ > ${outputdir}/${fileid}.trinity.Trinity.fasta
+	sed "s/TRINITY_/${fileid}_/g" $PBS_JOBFS/${fileid}.trinity.Trinity.fasta.gene_trans_map > ${outputdir}/${fileid}.trinity.Trinity.fasta.gene_trans_map
 	echo ${fileid} start:${starttime} end:${endtime} > ${outputdir}/${fileid}.trinity.done
 	rm ${outputdir}/${fileid}.trinity.running
 fi
