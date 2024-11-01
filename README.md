@@ -21,7 +21,7 @@ Command to submit trinity jobs:
 cat trinity.filelist | \
 xargs -l bash -c 'command qsub -j oe -o /PBS/outputdir/$0.OU \
 -v outputdir=/path/2/save/assemblies/Trinity,fileid=\"$0\",seqtype=\"$1\",sstype=\"$2\",leftfq=\"$3\",rightfq=\"$4\" \
-runtrinityModified.sh'
+runtrinity.sh'
 ```
 
 NOTES:
