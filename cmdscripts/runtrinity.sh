@@ -20,7 +20,7 @@ else
 			--CPU ${PBS_NCPUS} \
 			--trimmomatic \
 			--output $PBS_JOBFS/${fileid}.trinity \
-			--full_cleanup --seqType fq --max_memory 190G \
+			--full_cleanup --seqType fq --max_memory 185G \
 			--single ${leftfq}
         else
             Trinity --min_kmer_cov 3 --no_version_check \
@@ -28,7 +28,7 @@ else
 			--CPU ${PBS_NCPUS} \
 			--trimmomatic \
 			--output $PBS_JOBFS/${fileid}.trinity \
-			--full_cleanup --seqType fq --max_memory 190G \
+			--full_cleanup --seqType fq --max_memory 185G \
 			--single ${leftfq}
         fi
     elif [ "$seqtype" = "PE" ]; then
@@ -37,7 +37,7 @@ else
 			--CPU ${PBS_NCPUS} \
 			--trimmomatic \
 			--output $PBS_JOBFS/${fileid}.trinity \
-			--full_cleanup --seqType fq --max_memory 190G \
+			--full_cleanup --seqType fq --max_memory 185G \
 			--left ${leftfq} \
 			--right ${rightfq}
         else
@@ -46,7 +46,7 @@ else
 			--CPU ${PBS_NCPUS} \
 			--trimmomatic \
 			--output $PBS_JOBFS/${fileid}.trinity \
-			--full_cleanup --seqType fq --max_memory 190G \
+			--full_cleanup --seqType fq --max_memory 185G \
 			--left ${leftfq} \
 			--right ${rightfq}
         fi
